@@ -16,11 +16,15 @@ public class FirstThread extends Thread{
 	public void run() {
 		for(int i = 1; i<=5; i++) {
 			System.out.println(i);
-			try {
-				sleep(1000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+//			try {
+//				sleep(1000);
+//			} catch (InterruptedException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+			// Going to call the static interrupted method
+			if(Thread.interrupted()) {
+				break; // the class received a request to interrupt its task.
 			}
 		}
 	}
